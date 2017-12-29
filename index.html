@@ -3,34 +3,51 @@
         <title> Cash Register</title>
     </head>
     <body>
- <class id="display">[                                        ]</class>
- <br />
- <button type="seven">[7]</button>
- <button type="eight">[8]</button>
- <button type="nine">[9]</button>
- <button type="divide">[÷]</button>
- <button type="clear">[clear]</button>
- <br />
- <button type="four">[4]</button>
- <button type="five">[5]</button>
- <button type="six">[6]</button>
- <button type="multiply">[x]</button>
- <button type="balance">[get balance]</button>
- <br />
- <button type="one">[1]</button>
- <button type="two">[2]</button>
- <button type="three">[3]</button>
- <button type="subtract">[-]</button>
- <button type="deposit">[deposit cash]</button>
- <br />
- <button type="zero">[0]</button>
- <button type="zeroes">[00]</button>
- <button type="decimal">[.]</button>
- <button type="add">[+]</button>
- <button type="withdraw">[withdraw cash]</button>
- <br />
- <button type="equals">[=]</button>
+        <div id = "calculator">
+            <table>
+                <tr>
+                    <td colspan="5">
+                        <div class = "calDisplay" >
+                            <div id = "currentDisplay">0</div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><button id="seven" >[7]</button> </td>
+                    <td><button id="eight" >[8]</button></td>
+                    <td><button id="nine" >[9]</button></td>
+                    <td><button id="divide">[÷]</button></td>
+                    <td><button id="clear" >[clear]</button></td>
+                </tr>
+                <tr>
+                    <td><button id="four" >[4]</button></td>
+                    <td><button id="five" >[5]</button></td>
+                    <td><button id="six" >[6]</button></td>
+                    <td><button id="multiply">[x]</button></td>
+                    <td><button id="balance" >[get balance]</button></td>
+                 </tr>
+                 <tr>
+                    <td><button id="one" >[1]</button></td>
+                    <td><button id="two" >[2]</button></td>
+                    <td><button id="three" >[3]</button></td>
+                    <td><button id="subtract" >[-]</button></td>
+                    <td><button id="deposit" >[deposit cash]</button></td>
+                </tr>
+                <tr>
+                        <td><button id="zero" >[0]</button></td>
+                        <td><button id="zeroes" >[00]</button></td>
+                        <td><button id="decimal" >[.]</button></td>
+                        <td><button id="add" >[+]</button></td>
+                        <td><button id="withdraw">[withdraw cash]</button></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+            <td><button id="equals"  >[=]</button></td>
 
+            </table>
+        </div>
         <script type = "text/javascript" src = "./js/calculator.js"></script>
         <script type = "text/javascript" src = "./js/cash_register.js"></script>
     </body>

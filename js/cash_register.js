@@ -1,50 +1,75 @@
 let calculator = calculatorModule()
-calculator.load
-let display = document.getElementById("display").innerHTML = "00.00";
+let currDisp = document.getElementById("currentDisplay"); 
+
+
+
+function toDisplay(num) {
+    currDisp.innerHTML = num
+}
+
+function buttonClick(num) {
+    toDisplay(num)
+}
+
 /////////
-let clickSeven = document.getElementById("seven").onclick = function(x) {
-    let x = 7
-    
+let numSeven = document.getElementById("seven").onclick = buttonClick(7);
+
+let numEight = document.getElementById("eight").onclick = buttonClick(8);
+
+let numNine = document.getElementById("nine").onclick = buttonClick(9);
+
+let divideFunc = document.getElementById("divide").onclick = function() {
+    currDisp.innerHTML = "/"
+    calculator.divide
+            };
+
+let clearFunc = document.getElementById("clear").onclick = function() {
+    currDisp.innerHTML = 0; 
+        };
+/////////
+let numFour = document.getElementById("four").onclick = buttonClick(4);
+
+let numFive = document.getElementById("five").onclick = buttonClick(5);
+
+let numSix = document.getElementById("six").onclick = buttonClick(6);
+
+let multFunc = document.getElementById("multiply").onclick = function() {
+    currDisp.innerHTML = "x"
+    calculator.multiply
+        };
+let balanceFunc = document.getElementById("balance").onclick = function() { 
+    currDisp.innerHTML = calculator.getTotal
+        };
+/////////
+let numOne = document.getElementById("one").onclick = buttonClick(1);
+
+let numTwo = document.getElementById("two").onclick = buttonClick(2);
+
+let numThree = document.getElementById("three").onclick = buttonClick(3);
+
+let subtractFunc = document.getElementById("subtract").onclick = function(num) {
+    currDisp.innerHTML = "-"
+    calculator.subtract;
+        };
+
+let depositFunc = document.getElementById("deposit").onclick = function(num) {
+        currDisp.innerHTML = calculator.add;
+        };
+/////////
+let numZero = document.getElementById("zero").onclick = buttonClick(0);
+
+let numZeroes = document.getElementById("zeroes").onclick = buttonClick(00);
+
+let toDecimal = document.getElementById("decimal").onclick = buttonClick(".");
+
+let addFunc = document.getElementById("add").onlick = function(num) {
+    currDisp.innerHTML = "+"
+    calculator.add;
 };
 
-let clickEight = document.getElementById("eight");
-
-let clickNine=document.getElementById("nine");
-
-let funcDivide = document.getElementById("divide");
-
-let clearDisp = document.getElementById("clear");
+let withdrawFunc = document.getElementById("withdraw").onclick = function(num) {
+    currDisp.innerHTML = calculator.subtract
+        };
 /////////
-let clickFour = document.getElementById("four");
-
-let clickFive = document.getElementById("five");
-
-let clickSix = document.getElementById("six");
-
-let funcMult = document.getElementById("multiply");
-
-let getBalance = document.getElementById("balance");
-/////////
-let clickOne = document.getElementById("one");
-
-let clickTwo = document.getElementById("two");
-
-let clickThree = document.getElementById("three");
-
-let funcSubtract = document.getElementById("subtract");
-
-let deposit = document.getElementById("deposit");
-/////////
-let zero = document.getElementById("zero");
-
-let zeroes = document.getElementById("zeroes");
-
-let dec = document.getElementById("decimal");
-
-let funcAdd = document.getElementById("add");
-
-let withdraw = document.getElementById("withdraw");
-/////////
-let equals = document.getElementById("equals");
-
+let equalsTo = document.getElementById("equals");
 

@@ -104,7 +104,7 @@ let saveMemory = function () {
        memory = 0;
    }
 
-  return calculator = { //modules go here
+  return { 
     load: load,
     getTotal: getTotal,
     add: add, 
