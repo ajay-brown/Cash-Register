@@ -1,14 +1,15 @@
 let calculator = calculatorModule()
+window.cashRegister = (function() {
 let currDisp = document.getElementById("currentDisplay"); 
 
 
 
-function toDisplay(num) {
-    currDisp.innerHTML = num
-}
+//function toDisplay(num) {
+//    currDisp.innerHTML = num
+//}
 
 function buttonClick(num) {
-    toDisplay(num)
+    currDisp.innerHTML = num
 }
 
 /////////
@@ -18,9 +19,9 @@ let numEight = document.getElementById("eight").onclick = buttonClick(8);
 
 let numNine = document.getElementById("nine").onclick = buttonClick(9);
 
-let divideFunc = document.getElementById("divide").onclick = function() {
+let divideFunc = document.getElementById("divide").onclick = function(num) {
     currDisp.innerHTML = "/"
-    calculator.divide
+    calculator.divide(num)
             };
 
 let clearFunc = document.getElementById("clear").onclick = function() {
@@ -33,9 +34,9 @@ let numFive = document.getElementById("five").onclick = buttonClick(5);
 
 let numSix = document.getElementById("six").onclick = buttonClick(6);
 
-let multFunc = document.getElementById("multiply").onclick = function() {
+let multFunc = document.getElementById("multiply").onclick = function(num) {
     currDisp.innerHTML = "x"
-    calculator.multiply
+    calculator.multiply(num)
         };
 let balanceFunc = document.getElementById("balance").onclick = function() { 
     currDisp.innerHTML = calculator.getTotal
@@ -49,11 +50,12 @@ let numThree = document.getElementById("three").onclick = buttonClick(3);
 
 let subtractFunc = document.getElementById("subtract").onclick = function(num) {
     currDisp.innerHTML = "-"
-    calculator.subtract;
+    calculator.subtract(num);
         };
 
 let depositFunc = document.getElementById("deposit").onclick = function(num) {
-        currDisp.innerHTML = calculator.add;
+        currDisp.innerHTML = calculator.saveMemory
+        return recallMemory;
         };
 /////////
 let numZero = document.getElementById("zero").onclick = buttonClick(0);
@@ -64,7 +66,7 @@ let toDecimal = document.getElementById("decimal").onclick = buttonClick(".");
 
 let addFunc = document.getElementById("add").onlick = function(num) {
     currDisp.innerHTML = "+"
-    calculator.add;
+    calculator.add(num);
 };
 
 let withdrawFunc = document.getElementById("withdraw").onclick = function(num) {
@@ -72,4 +74,4 @@ let withdrawFunc = document.getElementById("withdraw").onclick = function(num) {
         };
 /////////
 let equalsTo = document.getElementById("equals");
-
+    }) ();
