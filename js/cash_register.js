@@ -6,6 +6,7 @@ let currDisp = document.getElementById("currentDisplay");
 
 let operation = 0; //store operation on calculator
 let maxLength = 10;
+let numberStore = 0;
 
 
 //function toDisplay(num) {
@@ -16,8 +17,12 @@ function buttonClick(num) {
    
     if (currDisp.length > maxLength) {
         currDisp.innerHTML = "Number is too big!"
-    } else {
+    } else if (numberStore === 0) {
+        numberStore = num;
         currDisp.innerHTML = num;
+    } else if (numberStore != 0) {
+        numberStore = numberStore + num;
+        currDisp.innerHTML = numberStore;
     }
 }
 
@@ -32,7 +37,7 @@ let numNine = document.getElementById("nine").addEventListener("click", function
 });
 
 let divideFunc = document.getElementById("divide").addEventListener("click", function() { function divide(num) {
-    currDisp.innerHTML = "/" + num;
+    currDisp.innerHTML = "/";
     calculator.divide(num);
     operation = 1;
   //  return calculator.getTotal;
