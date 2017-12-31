@@ -17,7 +17,7 @@ function calculatorModule() {
 
 
 let load = function(x) {
-    validation(x);
+  
         total = x;
         return total;
         };
@@ -26,7 +26,7 @@ let load = function(x) {
    */
   let validation = function(x) {
     if (isNaN(x)) {
-        throw Error(x + " is not a number!");
+        throw new Error(x + " is not a number!");
       } else {
           return true
       }
