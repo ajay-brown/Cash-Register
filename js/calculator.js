@@ -26,8 +26,10 @@ let load = function(x) {
    */
   let validation = function(x) {
     if (isNaN(x)) {
-        throw new Error(x + " is not a number!");
-      } 
+        throw Error(x + " is not a number!");
+      } else {
+          return true
+      }
   }
 
   /**
