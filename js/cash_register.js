@@ -6,7 +6,7 @@ let currDisp = document.getElementById("currentDisplay");
 
 let operation = 0; //store operation on calculator
 let maxLength = 10;
-let numberStore = 0;
+let numberStore = calculator.load();
 
 
 //function toDisplay(num) {
