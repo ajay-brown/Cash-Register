@@ -4,10 +4,10 @@ window.calculator = (function() {
     
 let currDisp = document.getElementById("currentDisplay"); 
 let x = 0; //initial value entered
-let operation = 0; //store operation on calculator
+let operation = 0;
 let maxLength = 10;
 let numberStore = calculator.load(x); 
-
+console.log(numberStore);
 function buttonClick(num) {
    
     if (currDisp.length > maxLength) {
@@ -16,9 +16,10 @@ function buttonClick(num) {
         numberStore = num; //updated stored number to entered number
         currDisp.innerHTML = num; // change display to entered number
     } else if (numberStore != 0) { //if number is not 0, second and onwards inputs
-        numberStore = numberStore + num; //number store value is updated
+        numberStore = Number(numberStore + num); //number store value is updated
         currDisp.innerHTML = num; //display new number entered
     }
+    console.log(numberStore);
 }
 
 /////////
@@ -31,15 +32,16 @@ let numEight = document.getElementById("eight").addEventListener("click", functi
 let numNine = document.getElementById("nine").addEventListener("click", function() { buttonClick(9)
 });
 
-let divideFunc = document.getElementById("divide").addEventListener("click", function() { function divide() {
-    calculator.load(numberStore); //load number stored
-    let toDivide = +currDisp.innerHTML; //to Divide saved as a value
-    calculator.divide(toDivide); // number displayed divided by total
-    operation = 1; //keeping track of operation
- } });
+let divideFunc = document.getElementById("divide").addEventListener("click", function() { 
+
+    console.log(numberStore);
+   operation = 1; //keeping track of operation
+   console.log(operation);
+  });
 
 let clearFunc = document.getElementById("clear").addEventListener("click",function() {
     calculator.clearMemory;
+    numberStore = 0;
     calculator.getTotal = 0;
     currDisp.innerHTML = 0; 
         });
@@ -53,13 +55,14 @@ let numFive = document.getElementById("five").addEventListener("click", function
 let numSix = document.getElementById("six").addEventListener("click", function() {buttonClick(6)
 });
 
-let multFunc = document.getElementById("multiply").addEventListener("click", function() {function multiply(num) {
-    calculator.load(numberStore);
+let multFunc = document.getElementById("multiply").addEventListener("click", function() {
+ 
     let toMult = +currDisp.innerHTML;
     calculator.multiply(toMult);
     operation = 2;
+    console.log(numberStore);
   //  return calculator.getTotal;
-   }   });
+     });
 let balanceFunc = document.getElementById("balance").addEventListener("click",function() { 
    let balance = Number(calculator.recallMemory); //converts to number
     currDisp.innerHTML = balance;
@@ -71,23 +74,23 @@ let numOne = document.getElementById("one").addEventListener("click", function()
 let numTwo = document.getElementById("two").addEventListener("click", function() {buttonClick(2)
 });
 
-let numThree = document.getElementById("three").addEventListener("click", function() {buttonClick("3")
+let numThree = document.getElementById("three").addEventListener("click", function() {buttonClick(3)
 });
 
-let subtractFunc = document.getElementById("subtract").addEventListener("click", function() {function subtract() {
+let subtractFunc = document.getElementById("subtract").addEventListener("click", function() {
    calculator.load(numberStore);
     let toSubtract = +currDisp.innerHTML;
     calculator.subtract(toSubtract);
     operation = 3;
- } });
+  });
 
-let depositFunc = document.getElementById("deposit").addEventListener("click", function() {function deposit(num) {
+let depositFunc = document.getElementById("deposit").addEventListener("click", function() {
        calculator.load(numberStore);
        calculator.getTotal;
     calculator.saveMemory; //saving total to memory
     currDisp.innerHTML = calculator.recallMemory;
        
- } });
+ });
 /////////
 let numZero = document.getElementById("zero").addEventListener("click", function() {buttonClick(0)
 });
@@ -99,44 +102,47 @@ let numZeroes = document.getElementById("zeroes").addEventListener("click", func
 }
 });
 
-let toDecimal = document.getElementById("decimal").addEventListener("click", function() {function decimal()  {
+let toDecimal = document.getElementById("decimal").addEventListener("click", function() {
         if (currDisp.length === 0) { //if already zero add 0.
             currDisp.innerHTML = "0." ; 
         } else {
           currDisp.innerHTML = currDisp + "." ;  //insert decimal to number
         }
-    }});
+    });
 
-let addFunc = document.getElementById("add").addEventListener("click", function() {function add() {
+let addFunc = document.getElementById("add").addEventListener("click", function() {
    calculator.load(numberStore) //load stored number
    let toAdd = +currDisp.innerHTML;
     calculator.add(toAdd);  //add x value
     operation = 4;
 //    return calculator.getTotal;
-} } );
+ } );
 
-let withdrawFunc = document.getElementById("withdraw").addEventListener("click", function() {function withdraw(num) {
+let withdrawFunc = document.getElementById("withdraw").addEventListener("click", function() { 
    calculator.load(numberStore);
    let toWithdraw = +currDisp.innerHTML;
     calculator.subtract(toWithdraw)
     calculator.saveMemory; //saving total to memory
     currDisp.innerHTML = Number(calculator.recallMemory); //show total
-    }    });
+       });
+       
 /////////
-let equalsTo = document.getElementById("equals").addEventListener("click", function() {function calculate(operation) {
-    currDisp.innerHTML = ""; //clearing display to show total
+let equalsTo = document.getElementById("equals").addEventListener("click", function(operation) {
+    console.log(operation);
     if (operation === 1) {
-       currDisp.innerHTML = Number(calculator.getTotal);
+        let toDivide = +currDisp.innerHTML; //to Divide saved as a value
+      return calculator.divide(toDivide); // number displayed divided by total
     } else if (operation === 2) {
-        currDisp.innerHTML = Number(calculator.getTotal);
+        currDisp.innerHTML = numberStore;
     } else if (operation ===3) {
-        currDisp.innerHTML = Number(calculator.getTotal);
+        currDisp.innerHTML = numberStore;
     } else if (operation === 4) {
-        currDisp.innerHTML = Number(calculator.getTotal);
+        currDisp.innerHTML = numberStore;
     } else {
         currDisp.innerHTML = "Nothing Happened!";
     }
-}  }
+    operation = 0;
+  }
 
 
 
